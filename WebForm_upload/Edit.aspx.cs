@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.SqlClient;
 using System.IO;
 
@@ -81,12 +81,12 @@ namespace WebForm_upload
             string photopath = PhotoPath.Text;
             string filename = Photo.FileName;
             Boolean fileOK = false;
-            String path = Server.MapPath("~/UploadedImages/"); //路徑指定方法1 ex."C:\\Test.txt"
+            String path = Server.MapPath("~/UploadedImages/"); //路徑指定方法1 ex."C:\\Test.txt" ,路徑指定方法2 ex.@"C:\Test.txt"
             String fileExtension = Path.GetExtension(filename).ToLower();
             if (Photo.HasFile)
             {
                 //判斷是否為允許上傳的檔案類型
-                String[] allowedExtensions = {".gif", ".png", ".jpeg", ".jpg"};
+                String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
                 for (int i = 0; i < allowedExtensions.Length; i++)
                 {
                     if (fileExtension == allowedExtensions[i])
@@ -104,11 +104,11 @@ namespace WebForm_upload
                 try
                 {
                     //檢查 Server 上該資料夾是否存在，不存在就自動建立
-                    if (!Directory.Exists(@"~\UploadedImages\")) //路徑指定方法2 ex.@"C:\Test.txt"
+                    if (!Directory.Exists(path))
                     {
-                        Directory.CreateDirectory(@"~\UploadedImages\");
+                        Directory.CreateDirectory(path);
                     }
-                    
+
                     while (file.Exists)
                     {
                         //若欲上傳圖片檔名與serverfile內重複，重新命名： 檔名_1、檔名_2...
