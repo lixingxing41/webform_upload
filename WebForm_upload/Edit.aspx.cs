@@ -104,9 +104,9 @@ namespace WebForm_upload
                 try
                 {
                     //檢查 Server 上該資料夾是否存在，不存在就自動建立
-                    if (!Directory.Exists(@"~/UploadedImages/")) //路徑指定方法2 ex.@"C:\Test.txt"
+                    if (!Directory.Exists(@"~\UploadedImages\")) //路徑指定方法2 ex.@"C:\Test.txt"
                     {
-                        Directory.CreateDirectory(@"~/UploadedImages/");
+                        Directory.CreateDirectory(@"~\UploadedImages\");
                     }
                     
                     while (file.Exists)
